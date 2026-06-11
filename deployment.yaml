@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olivetti-deployment
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: olivetti-app
+
+  template:
+    metadata:
+      labels:
+        app: olivetti-app
+
+    spec:
+      containers:
+      - name: olivetti-container
+
+        image: bharatsharma757/olivetti-face-app:v1
+
+        ports:
+        - containerPort: 5001
